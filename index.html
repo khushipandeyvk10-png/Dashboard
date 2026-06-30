@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form Validation & Client Routing</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <main id="app"></main>
+
+    <template id="signup-view">
+        <div class="card animate-fade">
+            <h2>Create Account</h2>
+            <form id="signup-form" novalidate>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" autocomplete="off" placeholder="Min. 6 characters">
+                    <small class="error-text" id="username-error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Mix letters, digits & symbols">
+                    
+                    <div class="strength-meter">
+                        <div id="strength-bar"></div>
+                    </div>
+                    <small id="strength-label">Strength: Unverified</small>
+                    <small class="error-text" id="password-error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" placeholder="Re-enter password">
+                    <small class="error-text" id="confirm-error"></small>
+                </div>
+
+                <button type="submit" id="submit-btn" disabled>Create Account</button>
+            </form>
+        </div>
+    </template>
+
+    <template id="dashboard-view">
+        <div class="card dashboard-card animate-fade">
+            <h2>Welcome Back, <span id="user-display"></span>! 🎉</h2>
+            <p>You have successfully traversed routes via client-side code without hitting a remote server reload.</p>
+            <button id="logout-btn">Sign Out</button>
+        </div>
+    </template>
+
+    <script src="app.js"></script>
+</body>
+</html>
